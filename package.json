@@ -1,0 +1,24 @@
+{
+    "name": "resume-website-static",
+    "version": "1.0.0",
+    "description": "Resume website that linked to project and have cms to manage database",
+    "main": "index.js",
+    "directories": {
+        "test": "tests"
+    },
+    "scripts": {
+        "sass:build": "sass --no-source-map scss:public/css",
+        "sass:watch": "sass --no-source-map --watch scss:public/css"
+    },
+    "author": "Umar Fikri",
+    "license": "MIT",
+    "dependencies": {
+        "@fortawesome/fontawesome-free": "^6.7.2",
+        "bootstrap": "^5.3.5",
+        "datatables.net": "^2.3.0",
+        "datatables.net-bs5": "^2.3.0",
+        "jquery": "^3.7.1",
+        "sass": "^1.86.3",
+        "sweetalert2": "^11.20.0"
+    }
+}

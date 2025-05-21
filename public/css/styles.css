@@ -1,0 +1,413 @@
+@charset "UTF-8";
+html,
+body {
+  overflow-x: hidden;
+}
+
+.navbar {
+  transition: all 0.5s ease-in-out;
+}
+
+.navbar-sticky {
+  opacity: 0.9;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.header {
+  background: #151515 url("../../image/Main-Resume/header-bg.png") no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh; /* <-- better than height: 100vh for mobile */
+  width: 100%;
+}
+
+.header::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.header .text-container {
+  z-index: 10;
+}
+
+.header #typing-text {
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+.about-img {
+  width: 250px;
+}
+
+.skills {
+  background: #151515 url("../../image/Main-Resume/skills-bg.jpg") no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative; /* Ensure ::after overlay works correctly */
+}
+
+.skills::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.skills .skills-content {
+  z-index: 10;
+}
+
+.bsb-timeline-1 {
+  --bsb-tl-color: #035a6a;
+  --bsb-tl-circle-color: #1b3785;
+  --bsb-tl-circle-size: 18px;
+  --bsb-tl-circle-offset: 9px;
+}
+
+.bsb-timeline-1 .timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.bsb-timeline-1 .timeline:after {
+  background-color: var(--bsb-tl-color);
+  bottom: 0;
+  content: "";
+  left: 0;
+  margin-left: -1px;
+  position: absolute;
+  top: 0;
+  width: 2px;
+}
+
+.bsb-timeline-1 .timeline > .timeline-item {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.bsb-timeline-1 .timeline > .timeline-item:before {
+  background-color: var(--bsb-tl-circle-color);
+  border-radius: 50%;
+  content: "";
+  height: var(--bsb-tl-circle-size);
+  left: calc(var(--bsb-tl-circle-offset) * -1);
+  position: absolute;
+  top: 0;
+  width: var(--bsb-tl-circle-size);
+  z-index: 1;
+}
+
+.bsb-timeline-1 .timeline > .timeline-item .timeline-body {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.bsb-timeline-1 .timeline > .timeline-item .timeline-content {
+  padding: 0 0 2.5rem 2.5rem;
+}
+
+.custom-bullet {
+  list-style: none;
+  padding-left: 0;
+}
+
+.custom-bullet li {
+  position: relative;
+  padding-left: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.custom-bullet li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.4em;
+  width: 0.5em;
+  height: 0.5em;
+  background-color: #035a6a; /* Bootstrap primary color */
+  border-radius: 50%;
+}
+
+.project {
+  background: #151515 url("../../image/Main-Resume/project-bg.jpg") no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 50vh;
+  width: 100%;
+}
+
+.project::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.project .project-content {
+  z-index: 10;
+}
+
+.project-highlight-box {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px);
+}
+
+.fullscreen-img-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1080;
+}
+
+.fullscreen-img-overlay img {
+  max-width: 80vw;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.fullscreen-img-overlay.active {
+  display: flex;
+}
+
+.fullscreen-img-overlay::after {
+  content: "✕";
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+.contact {
+  position: relative;
+  overflow: hidden; /* ensures the wave stays in bounds */
+}
+
+.contact .container {
+  position: relative;
+  z-index: 1;
+}
+
+.contact-wave {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: auto;
+  z-index: 0; /* Lower than content */
+  pointer-events: none; /* So it doesn't block clicks */
+}
+
+@media (max-width: 768px) {
+  .header {
+    background-attachment: scroll;
+  }
+  .header .roles {
+    font-size: 18px !important;
+  }
+  .bsb-timeline-1 .timeline > .timeline-item .timeline-content {
+    padding-bottom: 3rem;
+  }
+  .about-content {
+    flex-direction: column;
+  }
+}
+/* Login */
+.login {
+  background: #151515 url("../../image/Main-Resume/header-bg.png") no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh; /* <-- better than height: 100vh for mobile */
+  width: 100%;
+}
+
+.login::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(2px);
+}
+
+.login-card {
+  border: none;
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  z-index: 10;
+}
+
+.login-card .form-control {
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-card .form-control:focus {
+  outline: none;
+}
+
+.login-card input.form-control {
+  background-color: #95d6e1; /* light gray */
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05); /* optional inner shadow */
+  transition: background-color 0.3s ease;
+}
+
+.login-card input.form-control::placeholder {
+  color: rgb(255, 255, 255); /* softer white placeholder */
+}
+
+.login-card input.form-control:focus {
+  background-color: #95d6e1; /* pure white on focus */
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.main {
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background-color: #f9f9f9;
+}
+
+#sidebar {
+  max-width: 264px;
+  min-width: 264px;
+  transition: all 0.35s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+#sidebar.collapsed {
+  margin-left: -264px;
+}
+
+.toggler-btn {
+  background-color: transparent;
+  cursor: pointer;
+  border: 0;
+}
+
+.navbar {
+  padding: 1.15rem 1.5rem;
+}
+
+.sidebar-nav {
+  flex: 1 1 auto;
+}
+
+a.sidebar-link {
+  padding: 0.625rem 1.625rem;
+  position: relative;
+  transition: all 0.35s;
+  display: block;
+}
+
+a.sidebar-link:hover {
+  background-color: rgba(249, 246, 246, 0.1882352941);
+}
+
+.sidebar-link[data-bs-toggle=collapse]::after {
+  border: solid;
+  border-width: 0 0.3rem 0.3rem 0;
+  border-color: #ffffff;
+  content: "";
+  display: inline-block;
+  padding: 5px;
+  position: absolute;
+  right: 1.5rem;
+  top: 1.2rem;
+  transform: rotate(-135deg);
+  transition: all 0.2s ease-out;
+}
+
+.sidebar-link[data-bs-toggle=collapse].collapsed::after {
+  transform: rotate(45deg);
+  transition: all 0.2s ease-out;
+}
+
+@media (max-width: 768px) {
+  .sidebar-toggle {
+    margin-left: -264px;
+  }
+  #sidebar.collapsed {
+    margin-left: 0;
+  }
+}
+.colored-toast.swal2-icon-success {
+  background-color: #a5dc86 !important;
+}
+
+.colored-toast.swal2-icon-error {
+  background-color: #f27474 !important;
+}
+
+.colored-toast.swal2-icon-warning {
+  background-color: #f8bb86 !important;
+}
+
+.colored-toast.swal2-icon-info {
+  background-color: #3fc3ee !important;
+}
+
+.colored-toast.swal2-icon-question {
+  background-color: #87adbd !important;
+}
+
+.colored-toast .swal2-title {
+  color: white;
+}
+
+.colored-toast .swal2-close {
+  color: white;
+}
+
+.colored-toast .swal2-html-container {
+  color: white;
+}

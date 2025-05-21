@@ -1,0 +1,24 @@
+# Laravel folders
+/vendor
+/node_modules
+/storage/*.key
+/storage/pail
+/storage/logs
+/storage/framework/cache
+/storage/framework/sessions
+/storage/framework/views
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# IDE and test files
+.phpunit.result.cache
+.phpactor.json
+
+# OS & package manager files
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
